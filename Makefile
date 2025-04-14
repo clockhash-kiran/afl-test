@@ -1,11 +1,7 @@
-CC=afl-gcc
+CC=afl-gcc-fast
 CFLAGS=-O2
-TARGET=fuzz_target
 
-all: $(TARGET)
+all: fuzz_target
 
-$(TARGET): fuzz_target.c
-	$(CC) $(CFLAGS) -o $(TARGET) fuzz_target.c
-
-clean:
-	rm -f $(TARGET)
+fuzz_target: fuzz_target.c
+	$(CC) $(CFLAGS) -o fuzz_target fuzz_target.c
